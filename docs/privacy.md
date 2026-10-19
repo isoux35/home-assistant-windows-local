@@ -15,6 +15,8 @@ Runtime configuration belongs only in ignored local files:
 
 The Winix and Xtricity guides describe model/version information, general setup steps and non-identifying protocol datapoint numbers. They contain no account names, user codes, device IDs, local keys, QR login images, LAN/MAC addresses, current household readings or device screenshots. The temporary Smart Life cloud login is distinct from the device's persistent local key; both must remain private.
 
+The [prepared Xtricity upstream report](upstream/xtricity-tuya-local-report.md) additionally includes the shared Tuya product/model ID used for profile matching. This identifies a product family, not an individual device or account. The report retains no private per-device identifiers or captured runtime values.
+
 The GitHub repository owner remains visible as part of GitHub's normal account identity. The scripts do not embed a Windows username, real name, email address, home network address or location from the original installation.
 
 The anonymous MQTT example is intended only for loopback access on the same PC. Do not publish it to a LAN or the internet without replacing that configuration with an appropriate authenticated setup. Wyze host-networked listeners have different exposure characteristics; see its guide.

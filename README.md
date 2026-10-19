@@ -44,6 +44,8 @@ Windows keeps ownership of its Bluetooth adapter. The sensor receiver does not p
 5. Optionally follow [Winix C909 cloud setup](docs/winix-c909.md).
 6. See [tested findings](docs/findings.md), [privacy](docs/privacy.md), and [credits](docs/credits.md).
 
+The [sanitized Xtricity upstream report](docs/upstream/xtricity-tuya-local-report.md) is ready for submission when Tuya Local accepts contributions again. It has not been submitted upstream; its status note records the restrictions observed when submission was attempted.
+
 Use these files in a separate installation. The Compose project names are deliberately different from an existing installation, but both installations use the same service ports. Stop an existing stack or choose separate ports before starting another one. The scripts never migrate an existing Home Assistant configuration.
 
 ## Validation

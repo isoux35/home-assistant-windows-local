@@ -87,3 +87,7 @@ This is evidence of local control and restart recovery, not a complete internet-
 The device ID and local key are stored in Home Assistant's ignored `config/` directory. Do not commit `.storage`, account exports, diagnostics or screenshots containing the setup form. This repository supplies no real device identifiers, LAN addresses, keys or cloud tokens.
 
 Re-pairing the device changes its local key. If this happens, retrieve the new key through the private setup flow and reconfigure the integration. Do not publish the old or new key in an issue. See [upstream troubleshooting](https://github.com/make-all/tuya-local/tree/2026.9.2-rel) for protocol and connection problems.
+
+## Prepared upstream contribution
+
+The [sanitized product-match report](upstream/xtricity-tuya-local-report.md) contains the shared product/model ID, datapoint types and verified test results in a form ready for Tuya Local's existing-profile report. Submission was blocked by upstream contribution restrictions observed on 2026-10-19. The draft is preserved here and has not been submitted upstream.

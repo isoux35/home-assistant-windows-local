@@ -42,6 +42,7 @@ Recorded 2026-10-19. These are observations from one Windows PC, one H5105, two 
 - An initially-off second channel passed a brief on/off test and was restored. Home Assistant maintained a direct local TCP connection to the bar on port 6668.
 - After a Home Assistant restart cleared the temporary cloud login, the local connection and three switch states returned. The switches also remained in dashboard Favorites. Timer behavior was not tested.
 - Internet access remained enabled throughout. This verifies LAN control and restart recovery, not a full outage test or prevention of the bar's own cloud traffic. See the [Xtricity local setup guide](xtricity-smart-life.md).
+- A [sanitized existing-profile report](upstream/xtricity-tuya-local-report.md) is prepared for upstream. Submission was blocked on 2026-10-19: issue and pull-request creation were restricted to collaborators, and Discussions was unavailable. No Xtricity report was submitted upstream.
 
 ## Existing work and upstream contributions
 

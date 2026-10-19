@@ -10,6 +10,10 @@ Runtime configuration belongs only in ignored local files:
 - `wyze/.secrets.env`: account/API credentials, local passwords and camera addressing.
 - `wyze/state/`: session tokens and generated configuration.
 - Root `config/`: Home Assistant authentication, database and configuration.
+- `config/.storage/`: also includes the Winix account configuration and the Xtricity/Tuya device ID and local key. Do not export it into documentation or issues.
+- Root `runtime/upstream/`: optional local checkouts used when installing the pinned custom integrations; upstream code is referenced, not vendored in this repository.
+
+The Winix and Xtricity guides describe model/version information, general setup steps and non-identifying protocol datapoint numbers. They contain no account names, user codes, device IDs, local keys, QR login images, LAN/MAC addresses, current household readings or device screenshots. The temporary Smart Life cloud login is distinct from the device's persistent local key; both must remain private.
 
 The GitHub repository owner remains visible as part of GitHub's normal account identity. The scripts do not embed a Windows username, real name, email address, home network address or location from the original installation.
 

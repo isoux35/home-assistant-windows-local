@@ -3,6 +3,9 @@
 This project packages original glue scripts and setup notes around existing projects. It does not claim authorship of Bluetooth decoders, camera protocols, Home Assistant, FFmpeg, or the bridge image.
 
 - [Home Assistant](https://github.com/home-assistant/core): automation platform and native Govee/TP-Link/MQTT/Generic Camera integrations; Apache-2.0.
+- [iprak/winix](https://github.com/iprak/winix): community Winix cloud integration, tested at 1.7.0; MIT. Its account/session behavior and sensor meanings inform the C909 guide.
+- [make-all/tuya-local](https://github.com/make-all/tuya-local): community Tuya LAN integration and existing `multi_timer_powerstrip` device profile, tested at 2026.9.2; MIT. The Xtricity setup uses its existing profile without modifying or claiming authorship of it.
+- [TinyTuya](https://github.com/jasonacox/tinytuya): local Tuya protocol library used by Tuya Local; MIT. The cloud-assisted setup dependency is declared by Tuya Local's upstream manifest.
 - [Bluetooth-Devices/govee-ble](https://github.com/Bluetooth-Devices/govee-ble): the Govee advertisement decoder imported by the receiver; Apache-2.0 with notices for incorporated upstream work.
 - [Bleak](https://github.com/hbldh/bleak): Windows Bluetooth scanning; MIT.
 - [Eclipse Paho MQTT Python](https://github.com/eclipse-paho/paho.mqtt.python): MQTT client; EPL-2.0 / EDL-1.0.

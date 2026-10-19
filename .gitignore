@@ -8,6 +8,12 @@
 !.secrets.env.example
 config.json
 config/
+.storage/
+secrets.yaml
+secrets.yml
+*.db
+*.db-shm
+*.db-wal
 state/
 runtime/
 __pycache__/

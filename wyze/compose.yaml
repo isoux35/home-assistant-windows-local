@@ -1,0 +1,38 @@
+name: wyze-local-guide
+services:
+  wyze-bridge:
+    image: idisposablegithub365/wyze-bridge@sha256:708903d2882c76966ecb29763a075372d89773aa6796d0aab70f04369cc6d521
+    restart: unless-stopped
+    network_mode: host
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    mem_limit: 768m
+    cpus: 2
+    env_file:
+      - path: .secrets.env
+        format: raw
+    environment:
+      TZ: ${TZ:-UTC}
+      PATH: /opt/wyze-ffmpeg:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      BRIDGE_PORT: "5080"
+      BRIDGE_AUTH: "true"
+      BRIDGE_USERNAME: localviewer
+      FILTER_BLOCKS: "false"
+      MODEL_OVERRIDES: GW_GC1:is_gwell=true,is_gwell_p2p=true,is_webrtc=false
+      GWELL_ENABLED: "true"
+      TUTK_FALLBACK_THRESHOLD: "0"
+      RECORD_ALL: "false"
+      SNAPSHOT_INTERVAL: "0"
+      AUDIO: "false"
+      STATE_DIR: /config
+      LOG_LEVEL: info
+      GWELL_DEADMAN_TIMEOUT: 90s
+    volumes:
+      - ./state:/config
+      - ./bin/ffmpeg:/opt/wyze-ffmpeg/ffmpeg:ro
+    tmpfs: [/media]
+    logging:
+      driver: json-file
+      options:
+        max-size: 5m
+        max-file: "2"

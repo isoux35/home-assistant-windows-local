@@ -1,0 +1,26 @@
+name: home-assistant-local-guide
+services:
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:2026.10.2
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      TZ: ${TZ:-UTC}
+    volumes:
+      - ./config:/config
+    stop_grace_period: 60s
+  mosquitto:
+    image: eclipse-mosquitto@sha256:38c0da4f2ef84284d47b3b3eeea1cb3bdeabe81ee10caf0cd5c5ff61ee3ea408
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:1883:1883"
+    volumes:
+      - ./govee/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - mqtt-data:/mosquitto/data
+    logging:
+      driver: json-file
+      options:
+        max-size: 2m
+        max-file: "2"
+volumes:
+  mqtt-data:

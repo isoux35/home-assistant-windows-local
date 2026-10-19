@@ -1,0 +1,27 @@
+#!/bin/sh
+# Re-encode the Gwell publisher for browser-compatible H.264.
+# Other ffmpeg operations, including image extraction, pass through unchanged.
+gwell_raw_input=false
+gwell_rtsp_output=false
+gwell_previous=
+gwell_output=
+for gwell_argument in "$@"; do
+    if [ "$gwell_previous" = '-i' ] && [ "$gwell_argument" = 'pipe:0' ]; then
+        gwell_raw_input=true
+    fi
+    if [ "$gwell_previous" = '-f' ] && [ "$gwell_argument" = 'rtsp' ]; then
+        gwell_rtsp_output=true
+    fi
+    gwell_previous=$gwell_argument
+    gwell_output=$gwell_argument
+done
+if [ "$gwell_raw_input" = true ] && [ "$gwell_rtsp_output" = true ]; then
+    echo 'Gwell video: re-encoding locally as baseline H.264 for browser playback.' >&2
+    exec /usr/bin/ffmpeg -nostdin -hide_banner -loglevel warning \
+        -fflags +genpts+igndts+discardcorrupt -threads 2 -r 20 -f h264 -i pipe:0 \
+        -an -vf 'setpts=N/20/TB,format=yuv420p' \
+        -c:v libx264 -threads 2 -preset ultrafast -tune zerolatency \
+        -profile:v baseline -pix_fmt yuv420p -g 40 -keyint_min 40 -sc_threshold 0 -bf 0 \
+        -crf 23 -r 20 -f rtsp -rtsp_transport tcp "$gwell_output"
+fi
+exec /usr/bin/ffmpeg "$@"

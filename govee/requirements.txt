@@ -1,0 +1,4 @@
+bleak==3.0.2
+govee-ble==1.5.1
+home-assistant-bluetooth==2.0.0
+paho-mqtt==2.1.0
